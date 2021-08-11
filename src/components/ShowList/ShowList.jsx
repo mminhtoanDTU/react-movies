@@ -7,8 +7,12 @@ import {
 
 function ShowList({ Data = [], TitleTop }) {
     const [show, setShow] = useState([]);
-    const [page, setPage] = useState('1');
+    const [page, setPage] = useState(1);
     const [pageSize, setPageSize] = useState(20);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [page])
 
     useEffect(() => {
         function showCut() {
@@ -18,8 +22,7 @@ function ShowList({ Data = [], TitleTop }) {
             setShow(listCuted);
         }
         showCut();
-        window.scrollTo(0, 0);
-    }, [page])
+    }, [page, show])
 
     const handleOnChange = (page, pageSize) => {
         setPage(page);
@@ -43,8 +46,14 @@ function ShowList({ Data = [], TitleTop }) {
                     ))}
                 </ListCard>
             </Content>
-            <Paginations showLessItems onChange={handleOnChange} showSizeChanger={false} pageSize={20} defaultCurrent={1} total={Data.length} />
-
+            <Paginations
+                showLessItems
+                onChange={handleOnChange}
+                showSizeChanger={false}
+                pageSize={20}
+                defaultCurrent={1}
+                total={Data.length}
+            />
         </>
     );
 }

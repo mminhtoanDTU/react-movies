@@ -11,7 +11,7 @@ export const Title = styled.h1`
 `;
 
 export const Content = styled.div`
-
+    min-height: 100vh;
 `;
 
 export const ListCard = styled.div`

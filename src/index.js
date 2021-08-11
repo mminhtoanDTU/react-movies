@@ -1,19 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
 } from "react-router-dom";
+import { Provider } from 'react-redux';
+
+import './index.css';
 import GlobalStyle from './globalStyles';
+import App from './App';
+import store from './store';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <GlobalStyle />
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode >,
+  <Provider store={store}>
+    <React.StrictMode>
+      <GlobalStyle />
+      <Router>
+        <App />
+      </Router>
+    </React.StrictMode >
+  </Provider>,
   document.getElementById('root')
 );
 

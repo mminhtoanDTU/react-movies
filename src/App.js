@@ -1,22 +1,13 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import {
-  Switch,
-  Route,
-  useRouteMatch,
+  Route, Switch, useRouteMatch, useLocation
 } from "react-router-dom";
 import styled from 'styled-components';
-
 import {
-  Navbar,
-  MovieDetail,
-  SearchBox,
-  ShowList,
-  ShowListHome,
-  Loading,
-  NotFound,
-  ScrollToTop
+  Loading, MovieDetail, Navbar, NotFound, SearchBox
 } from './components';
 import { Container } from './globalStyles';
+
 
 const Phim = React.lazy(() => import('./Pages/Phim'));
 const PhimLe = React.lazy(() => import('./Pages/PhimLe'));
@@ -26,8 +17,13 @@ const PhimChieuRap = React.lazy(() => import('./Pages/PhimChieuRap'));
 const SearchPage = React.lazy(() => import('./Pages/SearchPage/SearchPage'));
 
 function App() {
-
   const match = useRouteMatch();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <>
       <Navbar />
@@ -54,7 +50,7 @@ function App() {
               <Route exact path={`${match.url}/search`}>
                 <SearchPage />
               </Route>
-              <Route exact path={`${match.url}/:param`}>
+              <Route exact path={`/phim/:param`}>
                 <MovieDetail />
               </Route>
               <Route component={NotFound} />
@@ -71,7 +67,7 @@ function App() {
 
 const Content = styled.div`
     background-color: #081b27;
-    min-height: calc(100vh - 60px);
+    min-height: 100vh;
 `;
 const ContainerContent = styled(Container)`
     padding-top: 60px;

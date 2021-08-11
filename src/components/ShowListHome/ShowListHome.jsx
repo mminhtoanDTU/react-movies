@@ -15,18 +15,14 @@ import {
     CardCategory,
     CardIcon
 } from './ShowListHome.element';
-import Loadings from '../Loading';
 
-function ShowListHome({ Data, TitleTop, LinkTo, Loading }) {
-    const match = useRouteMatch();
-    if (Loading) return <div><Loadings /></div>
-    if (Data === undefined) return <></>
+function ShowListHome({ Data = [], TitleTop, LinkTo }) {
     return (
         <>
             <Wrapper>
                 <Top>
                     <Title>{TitleTop}</Title>
-                    <TextSub to={`${match.url}/${LinkTo}`}>Xem tất cả</TextSub>
+                    <TextSub to={`theloai/${LinkTo}`}>Xem tất cả</TextSub>
                 </Top>
                 <Content>
                     <Cards>
