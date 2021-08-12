@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-movies-api"]=this["webpackJsonpreact-movies-api"]||[]).push([[4],{207:function(t,e,i){"use strict";i.r(e);i(0);var c=i(88),s=i(1);e.default=function(){return Object(s.jsx)(s.Fragment,{children:Object(s.jsx)(c.a,{TitleTop:"Phim b\u1ed9 m\u1edbi c\u1eadp nh\u1eadt"})})}}}]);
-//# sourceMappingURL=4.13b0186e.chunk.js.map
