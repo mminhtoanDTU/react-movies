@@ -64,7 +64,7 @@ function App() {
         </ContainerContent>
       </Content>
       <Footer>
-        Copyright © 2021 toandev.tk
+        Copyright © 2021 <a href="https://toandev.tk" target="_blank">toandev.tk</a>
       </Footer>
     </>
   );

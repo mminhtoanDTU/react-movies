@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const Title = styled.h1`
     text-transform: uppercase;
     color: #F1B722;
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 40px;
 `;
 

@@ -12,12 +12,16 @@ export const Wrapper = styled.div`
 export const Top = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    align-items: center;
+    @media screen and (min-width: 768px) {
+        padding: 0 20px;
+    }
+    
 `;
 
 export const Title = styled.span`
     color: #F1B722;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 500;
     text-transform: uppercase;
 `;
