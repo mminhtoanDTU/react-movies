@@ -27,7 +27,7 @@ function ShowListHome({ Data = [], TitleTop, LinkTo }) {
                 <Content>
                     <Cards>
                         {Data.slice(0, 8).map((item) => (
-                            <Card>
+                            <Card key={item.title}>
                                 <CardImage to={`/phim/${item.title}`}>
                                     <Image src={item.imageUrl} />
                                 </CardImage>

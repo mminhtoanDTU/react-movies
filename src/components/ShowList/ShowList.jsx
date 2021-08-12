@@ -22,7 +22,7 @@ function ShowList({ Data = [], TitleTop }) {
             setShow(listCuted);
         }
         showCut();
-    }, [page, show])
+    }, [page])
 
     const handleOnChange = (page, pageSize) => {
         setPage(page);
@@ -35,7 +35,7 @@ function ShowList({ Data = [], TitleTop }) {
             <Content>
                 <ListCard>
                     {show.map((item) => (
-                        <CardItem>
+                        <CardItem key={item.title}>
                             <CardImg to={`/phim/${item.title}`}>
                                 <Image src={item.imageUrl} />
                             </CardImg>

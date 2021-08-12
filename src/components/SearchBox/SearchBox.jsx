@@ -16,7 +16,7 @@ function SearchBox() {
     }
     const handleKeyDown = (e) => {
         if (e.charCode === 13) {
-            history.push(`/phim/search?q=${name}`);
+            history.push(`/phim/search?q=${name.trim()}`);
         }
     }
 
@@ -31,7 +31,7 @@ function SearchBox() {
                     onKeyPress={(e) => handleKeyDown(e)}
                 />
                 <SearchButton
-                    to={name.length > 0 ? `/phim/search?q=${name}` : '#'}
+                    to={name.length > 0 ? `/phim/search?q=${name.trim()}` : '#'}
                 >
                     Tìm kiếm
                 </SearchButton>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const Title = styled.h1`
     text-transform: uppercase;
     color: #F1B722;
-    font-size: 2rem;
+    font-size: 30px;
     margin-top: 40px;
 `;
 
@@ -57,6 +57,10 @@ export const CardRate = styled(Rate)`
     font-size: 13px;
     margin-bottom: 8px;
     z-index: 1;
+    @media screen and (max-width: 1023px) {
+        text-align: center;
+    }
+    
 `;
 
 export const CardTitle = styled(Link)`
@@ -72,6 +76,9 @@ export const CardTitle = styled(Link)`
     &:hover {
         color: #fff;
         text-decoration: underline;
+    }
+    @media screen and (max-width: 1023px) {
+        text-align: center;
     }
 `;
 

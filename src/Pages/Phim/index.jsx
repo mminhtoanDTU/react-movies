@@ -14,7 +14,7 @@ function Phim() {
     useEffect(() => {
         const setLoad = () => setTimeout(() => {
             setIsLoading(false);
-        }, 2000);
+        }, 3000);
         setLoad();
         return clearTimeout(setLoad)
     }, [])

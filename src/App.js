@@ -1,10 +1,10 @@
 import React, { Suspense, useEffect } from 'react';
 import {
-  Route, Switch, useRouteMatch, useLocation
+  Route, Switch, useLocation, useRouteMatch
 } from "react-router-dom";
 import styled from 'styled-components';
 import {
-  Loading, MovieDetail, Navbar, NotFound, SearchBox
+  Loading, Navbar, NotFound, SearchBox
 } from './components';
 import { Container } from './globalStyles';
 
@@ -14,11 +14,16 @@ const PhimLe = React.lazy(() => import('./Pages/PhimLe'));
 const PhimBo = React.lazy(() => import('./Pages/PhimBo'));
 const PhimHoatHinh = React.lazy(() => import('./Pages/PhimHoatHinh'));
 const PhimChieuRap = React.lazy(() => import('./Pages/PhimChieuRap'));
-const SearchPage = React.lazy(() => import('./Pages/SearchPage/SearchPage'));
+const SearchPage = React.lazy(() => import('./Pages/SearchPage'));
+const DetailPage = React.lazy(() => import('./Pages/DetailPage'));
 
 function App() {
   const match = useRouteMatch();
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.document.title = `Toan Phim Hay`;
+  }, [])
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -47,11 +52,11 @@ function App() {
               <Route exact path={`/theloai/phimchieurap`}>
                 <PhimChieuRap />
               </Route>
-              <Route exact path={`${match.url}/search`}>
+              <Route exact path={`/phim/search`}>
                 <SearchPage />
               </Route>
               <Route exact path={`/phim/:param`}>
-                <MovieDetail />
+                <DetailPage />
               </Route>
               <Route component={NotFound} />
             </Switch>
