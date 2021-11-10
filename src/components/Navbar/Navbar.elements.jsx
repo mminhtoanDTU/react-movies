@@ -27,8 +27,9 @@ export const Nav = styled.nav`
 export const NavLogo = styled(Link)`
     padding-left: 30px;
     float: left;
-    color: #fff;
+    color: ${colorPrimary};
     font-size: 1.5rem;
+    font-weight: 700;
     line-height: ${navHeightMobile};
     @media screen and (min-width: 1024px) {
         line-height:  ${navHeightPC};
