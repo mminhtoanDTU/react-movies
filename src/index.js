@@ -16,7 +16,7 @@ ReactDOM.render(
     <React.StrictMode>
       <GlobalStyle />
       <Router>
-        <Favicon url='https://res.cloudinary.com/mminhle771/image/upload/v1628731404/Videos_mmz5jz.ico' />
+        <Favicon url='https://res.cloudinary.com/toanlee/image/upload/v1628731404/Videos_mmz5jz.ico' />
         <App />
       </Router>
     </React.StrictMode >
