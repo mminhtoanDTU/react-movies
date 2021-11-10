@@ -6,7 +6,13 @@ import { EpisodeBox, EpisodeItem, EpisodeList, EpisodeTitle, Title, Video, Video
 function MovieDetail({ Data }) {
     let { param } = useParams();
     const currentMovie = FindMoive(Data, param);
-    const [currentUrl, setCurrentUrl] = useState(currentMovie.episode[0].url);
+    const [currentUrl, setCurrentUrl] = useState();
+
+    useEffect(() => {
+        if (currentMovie.episode[0]) {
+            setCurrentUrl(currentMovie.episode[0].url)
+        }
+    }, [])
 
     //scroll into video
     useEffect(() => {

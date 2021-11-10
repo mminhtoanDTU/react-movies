@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  HashRouter as Router,
-} from "react-router-dom";
 import { Provider } from 'react-redux';
-
-import './index.css';
-import GlobalStyle from './globalStyles';
+import {
+  HashRouter as Router
+} from "react-router-dom";
 import App from './App';
+import GlobalStyle from './globalStyles';
+import './index.css';
 import store from './store';
-import Favicon from 'react-favicon';
+
 
 ReactDOM.render(
   <Provider store={store}>

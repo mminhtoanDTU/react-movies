@@ -10,11 +10,10 @@ function PhimBo() {
     const moviesList = useSelector(state => state.movies.listMovies);
 
     useEffect(() => {
-        const setLoad = () => setTimeout(() => {
+        const timeLoad = setTimeout(() => {
             setIsLoading(false);
         }, 2000);
-        setLoad();
-        return clearTimeout(setLoad)
+        return () => clearTimeout(timeLoad)
     }, [])
     useEffect(() => {
         dispatch(fetchMovie());

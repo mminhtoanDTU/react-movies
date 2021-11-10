@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
 import {
@@ -7,12 +7,31 @@ import {
 } from './Navbar.elements';
 
 function Navbar(props) {
-    const [isCollapse, setIsCollapse] = useState(true);
+    const [isOpenNav, setIsOpenNav] = useState(false);
     const match = useRouteMatch();
     const menuRef = useRef();
+    const openRef = useRef();
+
+    useEffect(() => {
+        if (isOpenNav) {
+            document.addEventListener('click', handleClickOutside);
+
+        } else {
+            document.removeEventListener('click', handleClickOutside);
+        }
+
+        return () => document.removeEventListener('click', handleClickOutside);
+    }, [isOpenNav])
+
+    const handleClickOutside = (e) => {
+        if (menuRef.current.contains(e.target) || openRef.current.contains(e.target)) {
+            return;
+        }
+        setIsOpenNav(false);
+    }
 
     const handleIconClick = () => {
-        setIsCollapse(!isCollapse);
+        setIsOpenNav(!isOpenNav);
     }
 
     return (
@@ -20,10 +39,10 @@ function Navbar(props) {
             <NavContain>
                 <Nav>
                     <NavLogo to={match.url}>Toàn Phim Hay</NavLogo>
-                    <NavIcon onClick={handleIconClick}>
+                    <NavIcon ref={openRef} onClick={handleIconClick}>
                         <FaBars />
                     </NavIcon>
-                    <NavList ref={menuRef} collapse={isCollapse}>
+                    <NavList ref={menuRef} collapse={isOpenNav}>
                         <NavClose onClick={handleIconClick} />
                         <NavItem onClick={handleIconClick}>
                             <NavLinks

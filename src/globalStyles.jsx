@@ -1,13 +1,14 @@
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
     body {
-        font-size: 62.5%;
+        font-size: 10px;
         font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

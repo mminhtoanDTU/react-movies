@@ -32,11 +32,11 @@ function SearchPage() {
         setIsLoading(true);
         const newList = SearchMovie(moviesList, query);
         setListSearched(newList);
-        const setLoad = () => setTimeout(() => {
+        const setLoad = setTimeout(() => {
             setIsLoading(false);
         }, 2000);
-        setLoad();
-        return clearTimeout(setLoad)
+
+        return () => clearTimeout(setLoad)
     }, [query]);
 
     if (isLoading) return <Loading />

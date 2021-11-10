@@ -12,11 +12,11 @@ function Phim() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const setLoad = () => setTimeout(() => {
+        const timeLoad = setTimeout(() => {
             setIsLoading(false);
         }, 3000);
-        setLoad();
-        return clearTimeout(setLoad)
+
+        return () => clearTimeout(timeLoad)
     }, [])
 
     useEffect(() => {

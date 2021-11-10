@@ -9,12 +9,13 @@ function PhimHoatHinh() {
     const moviesList = useSelector(state => state.movies.listMovies);
 
     useEffect(() => {
-        const setLoad = () => setTimeout(() => {
+        const setLoad = setTimeout(() => {
             setIsLoading(false);
         }, 2000);
-        setLoad();
-        return clearTimeout(setLoad)
+
+        return () => clearTimeout(setLoad);
     }, [])
+
     useEffect(() => {
         dispatch(fetchMovie());
     }, [dispatch])

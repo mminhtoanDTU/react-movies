@@ -61,7 +61,7 @@ export const NavIcon = styled.div`
 
 export const NavList = styled.ul`
     position: fixed;
-    right: ${({ collapse }) => (collapse ? '-100%' : '0')};
+    right: ${({ collapse }) => (collapse ? '0' : '-100%')};
     bottom: 0;
     top: 0;
     width: 300px;
